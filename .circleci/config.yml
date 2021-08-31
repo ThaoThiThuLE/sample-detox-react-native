@@ -9,13 +9,8 @@ jobs:
     steps:
       - checkout
       - run: pwd
-      - run:
-          name: set var
-          command: echo "export s1_CIRCLE_BUILD_NUM=$CIRCLE_BUILD_NUM" >> $BASH_ENV
-      - run: echo "$s1_CIRCLE_BUILD_NUM"
       - run: mkdir -p workspace
       - run: echo "export s1_CIRCLE_BUILD_NUM=$CIRCLE_BUILD_NUM" >> workspace/new-env-vars
-      - run: cat workspace/new-env-vars >> $BASH_ENV
       - persist_to_workspace:
           root: workspace
           paths:
