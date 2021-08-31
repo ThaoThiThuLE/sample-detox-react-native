@@ -8,7 +8,6 @@ jobs:
       - image: golang:latest
     steps:
       - checkout
-      - run: pwd
       - run: mkdir -p workspace
       - run: echo "export s1_CIRCLE_BUILD_NUM=$CIRCLE_BUILD_NUM" >> workspace/new-env-vars
       - persist_to_workspace:
@@ -23,8 +22,6 @@ jobs:
       - attach_workspace:
           at: /tmp/cci-test/workspace
       - run: cat workspace/new-env-vars >> $BASH_ENV
-      - run: echo "This is running in the second job"
-      - run: ls -l
       - run:
           name: Print s1_CIRCLE_BUILD_NUM
           command: |
