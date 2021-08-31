@@ -32,8 +32,8 @@ jobs:
       - run: ls -l
       - run:
           name: Print s1_CIRCLE_BUILD_NUM
-          commands: |
-            echo "s1_CIRCLE_BUILD_NUM: ${s1_CIRCLE_BUILD_NUM}""
+          command: |
+            echo "s1_CIRCLE_BUILD_NUM: ${s1_CIRCLE_BUILD_NUM}"
 
 workflows:
   version: 2
